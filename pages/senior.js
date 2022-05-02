@@ -8,7 +8,7 @@ const Senior = () => {
         "tiene_servicios_basicos": 1, 
         "calidad_sector": 2,
         "calidad_vivienda": 3, 
-        "años_cumplidos": "68", 
+        "años_cumplidos": "", 
         "sexo_n": 1,
         "estado_de_salud": 5,
         "estado_civil_n": 2,
@@ -28,12 +28,13 @@ const Senior = () => {
 
     return (
         <>
-            <h1>Formulario de predicción de adultos mayores</h1>
+            <h1 className="col-lg-6 offset-lg-3 my-4">Formulario de predicción de adultos mayores</h1>
 
             <Form className="col-lg-6 offset-lg-3 bg-gray-200">
 
                 <Form.Label>¿Su casa tiene servicios basicos?</Form.Label>
-                <Form.Select 
+                <Form.Select
+                    className="mb-3" 
                     onChange={e => {setValue("tiene_servicios_basicos", e.target.value)}} 
                     value={values.tiene_servicios_basicos}
                 >
@@ -42,8 +43,9 @@ const Senior = () => {
                 </Form.Select>
 
 
-                <Form.Label>De 1 a 3 ¿cual es la calidad de su sector</Form.Label>
+                <Form.Label>¿Cual es la calidad de su sector</Form.Label>
                 <Form.Select
+                    className="mb-3"
                     onChange={e => {setValue("calidad_sector", e.target.value)}} 
                     value={values.calidad_sector}
                 >
@@ -53,8 +55,9 @@ const Senior = () => {
                 </Form.Select>
 
 
-                <Form.Label>De 1 a 3 ¿cual es la calidad de su vivienda</Form.Label>
+                <Form.Label>¿Cual es la calidad de su vivienda</Form.Label>
                 <Form.Select
+                    className="mb-3"
                     onChange={e => {setValue("calidad_vivienda", e.target.value)}} 
                     value={values.calidad_vivienda}
                 >
@@ -64,13 +67,15 @@ const Senior = () => {
                 </Form.Select>
 
                 <Form.Label>¿Cuantos años cumplidos tiene?</Form.Label>
-                <Form.Control 
+                <Form.Control
+                    className="mb-3"
                     onChange={e => {setValue("años_cumplidos", e.target.value)}} 
                     value={values.años_cumplidos}
                     type="numbre" placeholder="Años cumplidos"/>
 
                 <Form.Label>¿Cual es su sexo?</Form.Label>
                 <Form.Select
+                    className="mb-3"
                     onChange={e => {setValue("sexo_n", e.target.value)}} 
                     value={values.sexo_n}
                 >
@@ -81,6 +86,7 @@ const Senior = () => {
 
                 <Form.Label>Califique su estado de salud</Form.Label>
                 <Form.Select
+                    className="mb-3"
                     onChange={e => {setValue("estado_de_salud", e.target.value)}} 
                     value={values.estado_de_salud}
                 >
@@ -92,6 +98,7 @@ const Senior = () => {
 
                 <Form.Label>¿Cual es su estado civil?</Form.Label>
                 <Form.Select
+                    className="mb-3"
                     onChange={e => {setValue("estado_civil_n", e.target.value)}} 
                     value={values.estado_civil_n}
                 >
@@ -105,6 +112,7 @@ const Senior = () => {
 
                 <Form.Label>¿Se considera campesino?</Form.Label>
                 <Form.Select
+                    className="mb-3"
                     onChange={e => {setValue("campesino", e.target.value)}} 
                     value={values.campesino}
                 >
@@ -114,6 +122,7 @@ const Senior = () => {
 
                 <Form.Label>¿Actualmente trabaja?</Form.Label>
                 <Form.Select
+                    className="mb-3"
                     onChange={e => {setValue("actualmente_trabaja", e.target.value)}} 
                     value={values.actualmente_trabaja}
                 >
@@ -124,6 +133,7 @@ const Senior = () => {
 
                 <Form.Label>Califique el disfrute de su tiempo libre de 1 a 10</Form.Label>
                 <Form.Select
+                    className="mb-3"
                     onChange={e => {setValue("satisfaccion_tiempo_libre", e.target.value)}} 
                     value={values.satisfaccion_tiempo_libre}
                 >
@@ -139,15 +149,19 @@ const Senior = () => {
                     <option value="9">9</option>
                     <option value="10">10 - Satisfecho</option>
                 </Form.Select>
-
-                <Button className="mt-2" variant="primary" onClick={() => predict()}>
-                    Predecir
-                </Button>
+                <div className="col text-center">
+                    <Button className="mt-2 " variant="primary" onClick={() => predict()}
+                        disabled={values.años_cumplidos === ""}>
+                        Predecir
+                    </Button>
+                </div>
             </Form>
 
 
             { prediction !== null ? (
-               <div className="col-lg-6 offset-lg-3"><p>Satisfacción de vida predecida {prediction}</p></div>
+                <div className="col-lg-6 offset-lg-3 text-center mt-4">
+                    <p>Satisfacción de vida predecida: <b>{prediction}</b></p>
+                </div>
             ): null}
         </>
     );
