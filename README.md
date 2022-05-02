@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+# Predictor de satisfacción de vida en adultos mayores y niños
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+La aplicación web del modelo de satisfacción de vida permite predecir la satisfacción de vida de niños y abuelos. Se considera un niño a una persona de 12 o menos años y un abuelo alguien de 60 o mas años. La aplicación recibe unas respuestas socioeconómicas básicas como la edad, calidad de la vivienda, del sector, etc. Con base en estas respuestas, se predice en una escala del 1 al 10 que tan satisfecha se encuentra la persona con la vida, siendo 1 muy insatisfecho y 10 totalmente satisfecho.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Uso
+Puede hacer uso de esta aplicación en el siguiente link
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+~~~
+https://main--animated-panda-b1e5cf.netlify.app/
+~~~
 
-## Learn More
+Escoge la población que desea predecir y cambia los valores del formulario. Luego en la parte inferior aparecerá la predicción en una escala del 1 al 10.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Navegación
+
+- Indice (principal): `/`
+- Predicción de satisfacción de vida para Niños: `/child`
+- Predicción de satisfacción de vida para Adultos mayores: `/senior`
+
+
+## A cerca de la creación
+Este componente frontend de la aplicación está creado en Next js, para saber más a cerca de Next Js
+
+- [Documentación Next.js](https://nextjs.org/docs) - aprende más de Next.js características y API.
+- [Learn Next.js](https://nextjs.org/learn) - un tutorial interactivo de Next.js.
+
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Backend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Se hace uso de una API previamente creada con modelos de machine learning para esta predicción
+
+~~~
+https://modelo-satisfaccion-vida.herokuapp.com/
+~~~
